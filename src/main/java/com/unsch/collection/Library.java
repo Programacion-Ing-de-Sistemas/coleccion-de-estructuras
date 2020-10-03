@@ -10,7 +10,7 @@ package com.unsch.collection;
 public class Library {
 
     public static final String VERSION = "1.0.0";
-    public static final String[] authors = {"Jhon samuel fernandez gutierrez", "Fernando bosh lope beltrán"};
+    public static final String[] authors = {"Jhon samuel fernandez gutierrez", "Fernando lope beltrán"};
 
     public boolean someLibraryMethod() {
         return true;

@@ -168,7 +168,7 @@ public class ListaSimple <Tipo> extends Lista<Tipo> {
     public void limpiar() {
         this.cabeza.destruir();
         this.cabeza = null;
-        // reset counter
+        this.reiniciarContador();
     }
 
     /**

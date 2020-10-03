@@ -76,19 +76,40 @@ public abstract class Lista<Tipo> {
         this.longitudLista -= 1;
     }
 
+    /**
+     * esta clase es nodo es generica es decir se usara para implementar direferentes tipos de nodos.
+     * @param <Tipo> esto indica el valor que va a contener el nodo.
+     * @author fernando
+     */
     protected static class Nodo<Tipo> {
+
+        /**
+         * aqui se almacena el valor del nodo.
+         */
         private Tipo valor;
+
+        /**
+         * Este constructor inicia el valor del nodo
+         * @param valor este es el valor que se va a agregar a este nodo.
+         */
         Nodo(Tipo valor) {
             this.valor = valor;
         }
 
+        /**
+         *
+         * @return devuelve el valor del nodo
+         */
         public Tipo getValor() {
             return this.valor;
         }
 
+        /**
+         * Modifica el valor del nodo.
+         * @param valor este es el nuevo valor del nodo
+         */
         public void setValor(Tipo valor) {
             this.valor = valor;
         }
     }
-
 }

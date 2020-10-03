@@ -76,4 +76,19 @@ public abstract class Lista<Tipo> {
         this.longitudLista -= 1;
     }
 
+    protected static class Nodo<Tipo> {
+        private Tipo valor;
+        Nodo(Tipo valor) {
+            this.valor = valor;
+        }
+
+        public Tipo getValor() {
+            return this.valor;
+        }
+
+        public void setValor(Tipo valor) {
+            this.valor = valor;
+        }
+    }
+
 }

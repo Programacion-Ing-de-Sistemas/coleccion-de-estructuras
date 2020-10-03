@@ -279,6 +279,9 @@ public class ListaSimple <Tipo> extends Lista<Tipo> {
         @Override
         public void destruir() {
             super.destruir();
+            if (this.siguiente != null) {
+                this.siguiente.destruir();
+            }
             this.siguiente = null;
         }
     }

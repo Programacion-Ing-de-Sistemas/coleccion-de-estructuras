@@ -70,6 +70,15 @@ public class ListaSimple <Tipo> extends Lista<Tipo>{
         public void setSiguiente(NodoSimple<Tipo> siguiente) {
             this.siguiente = siguiente;
         }
+
+        /**
+         * Este metodo se encarga de remover el valor del nodo y la referencia del siguiente nodo.
+         **/
+        @Override
+        public void destruir() {
+            super.destruir();
+            this.siguiente = null;
+        }
     }
 
 }

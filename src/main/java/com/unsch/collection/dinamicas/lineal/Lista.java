@@ -111,5 +111,12 @@ public abstract class Lista<Tipo> {
         public void setValor(Tipo valor) {
             this.valor = valor;
         }
+
+        /**
+         * Este metodo se encargara de destruir el nodo.
+         **/
+        public void destruir() {
+            this.valor = null;
+        }
     }
 }

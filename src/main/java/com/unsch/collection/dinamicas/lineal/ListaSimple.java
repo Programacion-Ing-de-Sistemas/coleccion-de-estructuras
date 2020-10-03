@@ -39,7 +39,7 @@ public class ListaSimple <Tipo> extends Lista<Tipo> {
         if (this.cabeza != null) {
             NodoSimple<Tipo> temporal = this.cabeza;
             while (temporal.getSiguiente() != null) {
-                temporal = temporal.getSiguiente();
+                temporal = (NodoSimple<Tipo>) temporal.getSiguiente();
             }
             temporal.setSiguiente(nuevoNodo);
         } else {
@@ -74,10 +74,10 @@ public class ListaSimple <Tipo> extends Lista<Tipo> {
                     int contador = 0;
                     NodoSimple<Tipo> temporal = this.cabeza;
                     while (contador < posicion - 1) {
-                        temporal = temporal.getSiguiente();
+                        temporal = (NodoSimple<Tipo>) temporal.getSiguiente();
                         contador++;
                     }
-                    NodoSimple<Tipo> posteriores = temporal.getSiguiente().getSiguiente();
+                    NodoSimple<Tipo> posteriores = (NodoSimple<Tipo>) ((NodoSimple<Tipo>) temporal.getSiguiente()).getSiguiente();
                     temporal.getSiguiente().destruir();
                     temporal.setSiguiente(posteriores);
                     this.decrementarContador();
@@ -120,8 +120,8 @@ public class ListaSimple <Tipo> extends Lista<Tipo> {
     public void removerFinal() {
         if(this.cabeza != null) {
             NodoSimple<Tipo> temporal = this.cabeza;
-            while (temporal.getSiguiente().getSiguiente() != null) {
-                temporal = temporal.getSiguiente();
+            while (((NodoSimple<Tipo>) temporal.getSiguiente()).getSiguiente() != null) {
+                temporal = (NodoSimple<Tipo>) temporal.getSiguiente();
             }
             temporal.getSiguiente().destruir();
             temporal.setSiguiente(null);
@@ -141,17 +141,17 @@ public class ListaSimple <Tipo> extends Lista<Tipo> {
         if(this.cabeza != null) {
             NodoSimple<Tipo> temporal = this.cabeza;
             if (temporal.getValor().equals(item)) {
-                this.cabeza = temporal.getSiguiente();
+                this.cabeza = (NodoSimple<Tipo>) temporal.getSiguiente();
                 temporal.destruir();
             } else {
                 while (temporal != null) {
                     if (temporal.getSiguiente().getValor().equals(item)) {
-                        NodoSimple<Tipo> remover = temporal.getSiguiente();
+                        NodoSimple<Tipo> remover = (NodoSimple<Tipo>) temporal.getSiguiente();
                         temporal.setSiguiente(remover.getSiguiente());
                         remover.destruir();
                         break;
                     } else {
-                        temporal = temporal.getSiguiente();
+                        temporal = (NodoSimple<Tipo>) temporal.getSiguiente();
                     }
                 }
                 this.decrementarContador();
@@ -183,7 +183,7 @@ public class ListaSimple <Tipo> extends Lista<Tipo> {
                 int contador = 0;
                 NodoSimple<Tipo> temporal = this.cabeza;
                 while (contador < posicion) {
-                    temporal = temporal.getSiguiente();
+                    temporal = (NodoSimple<Tipo>) temporal.getSiguiente();
                     contador++;
                 }
                 return temporal.getValor();
@@ -209,7 +209,7 @@ public class ListaSimple <Tipo> extends Lista<Tipo> {
                     existe = true;
                     break;
                 } else {
-                    temporal = temporal.getSiguiente();
+                    temporal = (NodoSimple<Tipo>) temporal.getSiguiente();
                 }
             }
             return existe;
@@ -229,7 +229,7 @@ public class ListaSimple <Tipo> extends Lista<Tipo> {
             tokens.append("[");
             while (temporal != null) {
                 tokens.append(temporal.getValor()).append(", ");
-                temporal = temporal.getSiguiente();
+                temporal = (NodoSimple<Tipo>) temporal.getSiguiente();
             }
             tokens.append("]");
             return tokens.toString().replace(", ]", "]");
@@ -261,7 +261,7 @@ public class ListaSimple <Tipo> extends Lista<Tipo> {
         /**
          * @return devuelve la referencia del nodo que sigue despues de este nodo.
          **/
-        public NodoSimple<Tipo> getSiguiente() {
+        public Nodo<Tipo> getSiguiente() {
             return this.siguiente;
         }
 
@@ -269,8 +269,8 @@ public class ListaSimple <Tipo> extends Lista<Tipo> {
          * Modifica la referencia del nodo que sigue despues de este nodo.
          * @param siguiente nueva referencia del siguiente nodo.
          **/
-        public void setSiguiente(NodoSimple<Tipo> siguiente) {
-            this.siguiente = siguiente;
+        public void setSiguiente(Nodo<Tipo> siguiente) {
+            this.siguiente = (NodoSimple<Tipo>) siguiente;
         }
 
         /**

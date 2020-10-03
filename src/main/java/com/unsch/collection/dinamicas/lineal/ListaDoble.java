@@ -85,10 +85,27 @@ public class ListaDoble<Tipo> extends ListaSimple<Tipo> {
             super(valor, null);
         }
 
-        /***/
         @Override
-        public Tipo getValor() {
-            return super.getValor();
+        public Nodo<Tipo> getSiguiente() {
+            return super.getSiguiente();
+        }
+
+        @Override
+        public void setSiguiente(Nodo<Tipo> siguiente) {
+            this.siguiente = (NodoDoble<Tipo>) siguiente;
+        }
+
+        public Nodo<Tipo> getAnterior() {
+            return this.anterior;
+        }
+
+        public void setAnterior(Nodo<Tipo> anterior) {
+            this.anterior = (NodoDoble<Tipo>) anterior;
+        }
+
+        @Override
+        public void destruir() {
+            super.destruir();
         }
     }
 

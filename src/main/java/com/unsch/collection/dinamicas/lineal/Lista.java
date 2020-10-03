@@ -77,6 +77,13 @@ public abstract class Lista<Tipo> {
     }
 
     /**
+     * El contador vuelve a ser cero.
+     **/
+    protected void reiniciarContador() {
+        this.longitudLista = 0;
+    }
+
+    /**
      * esta clase es nodo es generica es decir se usara para implementar direferentes tipos de nodos.
      * @param <Tipo> esto indica el valor que va a contener el nodo.
      * @author fernando

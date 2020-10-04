@@ -273,6 +273,7 @@ public class ListaDoble<Tipo> extends ListaSimple<Tipo> {
                 builder.append(temporal.getValor().toString()).append(",").append(" ");
                 temporal = (NodoDoble<Tipo>) temporal.getSiguiente();
             }
+            builder.append("]");
             return builder.toString().replace(", ]", "]");
         } else {
             return "[]";

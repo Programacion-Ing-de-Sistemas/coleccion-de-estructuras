@@ -85,27 +85,49 @@ public class ListaDoble<Tipo> extends ListaSimple<Tipo> {
             super(valor, null);
         }
 
+        /**
+         * @return retorna la referencia del siguinete nodo.
+         **/
         @Override
         public Nodo<Tipo> getSiguiente() {
             return super.getSiguiente();
         }
 
+        /**
+         * Modifica la referencia del sigueinte nodo.
+         *
+         * @param siguiente nueva referencia del siguiente nodo.
+         **/
         @Override
         public void setSiguiente(Nodo<Tipo> siguiente) {
             this.siguiente = (NodoDoble<Tipo>) siguiente;
         }
 
+        /**
+         * @return retorna la referencia del nodo anterior.
+         **/
         public Nodo<Tipo> getAnterior() {
             return this.anterior;
         }
 
+        /**
+         * Modifica la referencia del nodo anterior.
+         *
+         * @param anterior nueva referencia del nodo anterior.
+         **/
         public void setAnterior(Nodo<Tipo> anterior) {
             this.anterior = (NodoDoble<Tipo>) anterior;
         }
 
+        /**
+         * limpia las referencias del nodo anterior y posterior ademas de eliminar el valor
+         * que contenia el nodo.
+         **/
         @Override
         public void destruir() {
-            super.destruir();
+            this.siguiente = null;
+            this.anterior = null;
+            this.setValor(null);
         }
     }
 
